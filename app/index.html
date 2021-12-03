@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Venator</title>
+    <link rel= "stylesheet" href="main.css"/>
+  </head>
+<body>
+      <div class="header1"></div>
+        <h3 id="title1">Venator</h3>
+        <p id= "description"></p>
+      </div>
+      <form id="input_form">
+       <div id="stage_1" style="display: block;">
+        <p1 id="file_input_description">Plesae select a file to test and setup the environment</p1>
+        <input type="file"  id="target">
+        <input type="submit" value="Setup Analysis" id="submit_1" />
+       </div>
+      </form>
+      <form id="test_form">
+       <div id="stage_2" style="display: none;">
+         <p1 id="test_type_description">Please select the type of test you would like to run</p1>
+        <select type="text"  id="test_type">
+          <option id="Test1">exiftool</option>
+          <option id="Test2">clamscan</option>
+          <option id="Test3">Example2</option>
+        </select>
+        <input type="submit" value="Start Analysis" id="submit_2" />
+       </div>
+      </form>
+      <div id="stage_3" style="display: none;">
+        <p>Analysis complete!</p>
+        <br>
+        <p>Results can be found here</p>
+        <a id="output" href="output/">output</a>
+      </div>
+    
+  
+      
+    <script src="js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      const path = require('path')
+      const os = require('os')
+      const { ipcRenderer } = require('electron')
+      const input1 = document.getElementById('input_form');
+      const input2 = document.getElementById('test_form')
+      var filen
+    
+      function createNode(element) {
+        return document.createElement(element); 
+      }
+
+      function append(parent, el) {
+        return parent.appendChild(el); 
+      }
+
+      //onfileselection
+      input1.addEventListener('submit', (e) => {
+        e.preventDefault()       
+        let target = document.getElementById('target').files[0].path;
+        target= '"'+target+'"'
+        let filen = document.getElementById('target').files[0].name;
+        filen= '"'+filen+'"'
+        
+        console.log(target +" "+ filen)
+        ipcRenderer.send('send:cmd', {
+          target,
+          filen
+        });
+      });
+    
+        ipcRenderer.on('setup:end', (event, data) => {
+          console.log("Setup Complete.")
+          document.getElementById('stage_1').style = "display: none;";
+          document.getElementById('stage_2').style = "display: block;";
+        });
+        
+        input2.addEventListener('submit', (e) => {
+          e.preventDefault();       
+          let test_type = document.getElementById('test_type').value;
+          console.log(test_type);
+          ipcRenderer.send('start:analysis', {
+            test_type
+           });
+           ipcRenderer.on('Analysis:complete', (event, data) => {
+              
+              console.log(`${data}`)
+            	console.log("Analysis Complete.")
+              document.getElementById('stage_2').style="display: none"
+              document.getElementById('stage_3').style="display: block"
+              document.getElementById('output').href=`${data}`
+           });
+        });
+    </script>
+  </body>
+</html>
+

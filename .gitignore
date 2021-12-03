@@ -1,0 +1,13 @@
+/node_modules
+.DS_Store
+/release-builds
+app/output/import
+app/output/import requests.py_output.txt
+app/output/test;.java_output.txt
+output.txt
+donwloads
+app/materialize.min.js
+.VenatorV2outputoutput.txt
+outputoutput.txt
+.VenatorV2output
+.donwloads

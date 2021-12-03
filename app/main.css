@@ -1,0 +1,68 @@
+html{
+    min-width: 100%;
+    min-height: 100%;
+    background-color: darkslateblue;
+}
+body{
+    min-width: 100%;
+    min-height: 100%;
+    background-color: darkslateblue;
+}
+.main_container{
+   display: block;
+   text-align: center;
+   margin-top: 15%;
+   padding: auto;
+   background-color: darkslateblue;
+}
+.header1{
+    background-color: darkslateblue;  
+    margin-bottom: 90%;
+    padding-bottom: 90%;
+}
+.h3{
+    display: block;
+    text-align: justify;
+  
+    background-color: darkslateblue;
+
+}
+#h3 title1{
+    text-align: center;
+
+}
+#description{
+    display: block;
+    text-align: justify;
+    margin: auto;
+    padding: auto;
+    background-color: darkslateblue;
+}
+.input_fields{
+    background-color: darkslateblue;
+}
+
+#input_form{
+    background-color: darkslateblue;
+}
+.stage_1{
+    background-color: darkslateblue;
+}
+#file_input_description{
+    background-color: darkslateblue;
+}
+#target{
+    background-color: darkslateblue;
+}
+.stage_2{
+    background-color: darkslateblue;
+}
+#test_type_decription{
+    background-color: darkslateblue;
+}
+#test_type{
+    background-color: darkslateblue;
+}
+#submit{
+    background-color: darkslateblue;
+}
