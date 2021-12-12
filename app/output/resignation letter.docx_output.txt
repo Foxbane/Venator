@@ -1,0 +1,40 @@
+ExifTool Version Number         : 12.30
+File Name                       : resignation letter.docx
+Directory                       : .
+File Size                       : 13 KiB
+File Modification Date/Time     : 2021:11:15 08:27:03+00:00
+File Access Date/Time           : 2021:11:15 08:27:03+00:00
+File Inode Change Date/Time     : 2021:12:06 22:29:28+00:00
+File Permissions                : -rwxr-xr-x
+File Type                       : DOCX
+File Type Extension             : docx
+MIME Type                       : application/vnd.openxmlformats-officedocument.wordprocessingml.document
+Zip Required Version            : 20
+Zip Bit Flag                    : 0x0006
+Zip Compression                 : Deflated
+Zip Modify Date                 : 1980:01:01 00:00:00
+Zip CRC                         : 0x6cd2a4df
+Zip Compressed Size             : 346
+Zip Uncompressed Size           : 1312
+Zip File Name                   : [Content_Types].xml
+Creator                         : Custom Laptop
+Last Modified By                : bryan bird
+Revision Number                 : 3
+Create Date                     : 2021:11:11 13:30:00Z
+Modify Date                     : 2021:11:11 13:31:00Z
+Template                        : Normal.dotm
+Total Edit Time                 : 1 minute
+Pages                           : 1
+Words                           : 83
+Characters                      : 477
+Application                     : Microsoft Office Word
+Doc Security                    : None
+Lines                           : 3
+Paragraphs                      : 1
+Scale Crop                      : No
+Company                         : 
+Links Up To Date                : No
+Characters With Spaces          : 559
+Shared Doc                      : No
+Hyperlinks Changed              : No
+App Version                     : 16.0000

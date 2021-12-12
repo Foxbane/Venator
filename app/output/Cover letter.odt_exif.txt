@@ -1,0 +1,30 @@
+ExifTool Version Number         : 12.30
+File Name                       : Cover letter.odt
+Directory                       : .
+File Size                       : 5.4 KiB
+File Modification Date/Time     : 2020:12:09 11:55:23+00:00
+File Access Date/Time           : 2020:12:09 11:55:23+00:00
+File Inode Change Date/Time     : 2021:12:11 17:15:44+00:00
+File Permissions                : -rwxr-xr-x
+File Type                       : ODT
+File Type Extension             : odt
+MIME Type                       : application/vnd.oasis.opendocument.text
+Generator                       : MicrosoftOffice/15.0 MicrosoftWord
+Title                           : 
+Description                     : 
+Subject                         : 
+Initial-creator                 : bryan bird
+Creator                         : bryan bird
+Creation-date                   : 2020:12:09 11:32:00Z
+Date                            : 2020:12:09 11:55:00Z
+Print-date                      : 2020:12:09 11:55:00Z
+Template Href                   : Normal
+Template Type                   : simple
+Editing-cycles                  : 4
+Editing-duration                : PT1380S
+Document-statistic Page-count   : 1
+Document-statistic Paragraph-count: 3
+Document-statistic Word-count   : 289
+Document-statistic Character-count: 1937
+Document-statistic Row-count    : 13
+Document-statistic Non-whitespace-character-count: 1651

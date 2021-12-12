@@ -1,0 +1,20 @@
+ExifTool Version Number         : 12.30
+File Name                       : blackshear.zip
+Directory                       : .
+File Size                       : 115 KiB
+File Modification Date/Time     : 2021:12:04 15:59:14+00:00
+File Access Date/Time           : 2021:12:04 15:59:14+00:00
+File Inode Change Date/Time     : 2021:12:11 14:38:06+00:00
+File Permissions                : -rwxr-xr-x
+File Type                       : ZIP
+File Type Extension             : zip
+MIME Type                       : application/zip
+Zip Required Version            : 20
+Zip Bit Flag                    : 0
+Zip Compression                 : Deflated
+Zip Modify Date                 : 2021:10:05 03:08:00
+Zip CRC                         : 0x6a23c8ec
+Zip Compressed Size             : 30749
+Zip Uncompressed Size           : 244652
+Zip File Name                   : BlackshearDemoRegular.ttf
+Warning                         : [minor] Use the Duplicates option to extract tags for all 3 files

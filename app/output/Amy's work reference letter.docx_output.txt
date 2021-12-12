@@ -1,0 +1,42 @@
+ExifTool Version Number         : 12.30
+File Name                       : Amy's work reference letter.docx
+Directory                       : .
+File Size                       : 108 KiB
+File Modification Date/Time     : 2021:01:18 14:38:49+00:00
+File Access Date/Time           : 2021:01:18 14:38:49+00:00
+File Inode Change Date/Time     : 2021:12:06 22:37:15+00:00
+File Permissions                : -rwxr-xr-x
+File Type                       : DOCX
+File Type Extension             : docx
+MIME Type                       : application/vnd.openxmlformats-officedocument.wordprocessingml.document
+Zip Required Version            : 20
+Zip Bit Flag                    : 0x0006
+Zip Compression                 : Deflated
+Zip Modify Date                 : 1980:01:01 00:00:00
+Zip CRC                         : 0x2bbee9eb
+Zip Compressed Size             : 386
+Zip Uncompressed Size           : 1546
+Zip File Name                   : [Content_Types].xml
+Creator                         : Custom Laptop
+Last Modified By                : bryan bird
+Revision Number                 : 6
+Create Date                     : 2020:12:07 14:45:00Z
+Modify Date                     : 2021:01:18 14:38:00Z
+Template                        : Normal
+Total Edit Time                 : 16 minutes
+Pages                           : 1
+Words                           : 109
+Characters                      : 622
+Application                     : Microsoft Office Word
+Doc Security                    : None
+Lines                           : 5
+Paragraphs                      : 1
+Scale Crop                      : No
+Heading Pairs                   : Title, 1
+Titles Of Parts                 : 
+Company                         : 
+Links Up To Date                : No
+Characters With Spaces          : 730
+Shared Doc                      : No
+Hyperlinks Changed              : No
+App Version                     : 16.0000

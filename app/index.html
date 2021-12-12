@@ -2,9 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Venator</title>
     <link rel= "stylesheet" href="main.css"/>
+    <div id="header">
+      <a id="help" href="https://github.com/Foxbane/Venator" target="_blank"><img src=".\assets\question_mark.png" height="25px" width="25px"></a>
+    </div>
   </head>
 <body>
       <div class="header1"></div>
@@ -13,41 +15,42 @@
       </div>
       <form id="input_form">
        <div id="stage_1" style="display: block;">
-        <p1 id="file_input_description">Plesae select a file to test and setup the environment</p1>
-        <input type="file"  id="target">
+        <p1 id="file_input_description">Please select a file to test and setup the environment</p1></br>
+        <input type="file"  id="target"></br>
         <input type="submit" value="Setup Analysis" id="submit_1" />
        </div>
       </form>
       <form id="test_form">
        <div id="stage_2" style="display: none;">
-         <p1 id="test_type_description">Please select the type of test you would like to run</p1>
-        <select type="text"  id="test_type">
+         <p1 id="test_type_description">Please select the type of test you would like to run</p1><br>
+         <select type="text"  id="test_type">
           <option id="Test1">exiftool</option>
-          <option id="Test2">clamscan</option>
-          <option id="Test3">Example2</option>
-        </select>
-        <input type="submit" value="Start Analysis" id="submit_2" />
+          <option id="Test2">zipdump.py</option>
+          <option id="Test3">diec</option>
+         </select>
+         <input type="submit" value="Start Analysis" id="submit_2" />
        </div>
       </form>
       <div id="stage_3" style="display: none;">
-        <p>Analysis complete!</p>
-        <br>
-        <p>Results can be found here</p>
-        <a id="output" href="output/">output</a>
+        <p>Analysis complete</p>
+        <button id="output">click here to view results</button></br>
+        <button id="retest">Run another test?</button></br>
+        <button id="newtest">Or start a new test?</button>
       </div>
-    
-  
-      
-    <script src="js/materialize.min.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
       const path = require('path')
       const os = require('os')
       const { ipcRenderer } = require('electron')
       const input1 = document.getElementById('input_form');
-      const input2 = document.getElementById('test_form')
+      const input2 = document.getElementById('test_form');
+      const output = document.getElementById('output');
+      const newtest = document.getElementById('newtest');
+      const retest = document.getElementById('retest');
       var filen
-    
+      var results_location
+
       function createNode(element) {
         return document.createElement(element); 
       }
@@ -56,7 +59,20 @@
         return parent.appendChild(el); 
       }
 
-      //onfileselection
+      //Error Handling
+      ipcRenderer.on('Docker:install', (event, data) => {
+          console.log("docker not installed")
+          alert("Please install Docker for windows")
+        });
+      ipcRenderer.on('Docker:Error', (event, data) => {
+          console.log("Docker Not Running")
+          alert("Please ensure docker is running")
+        });
+      ipcRenderer.on('Error:encountered', (event, data) => {
+          console.log(data)
+          alert("The program encountered the following error:"+data)
+        });
+      //Stage_1: Environment Setup
       input1.addEventListener('submit', (e) => {
         e.preventDefault()       
         let target = document.getElementById('target').files[0].path;
@@ -70,13 +86,14 @@
           filen
         });
       });
-    
         ipcRenderer.on('setup:end', (event, data) => {
           console.log("Setup Complete.")
           document.getElementById('stage_1').style = "display: none;";
           document.getElementById('stage_2').style = "display: block;";
+          document.getElementById('stage_3').style = "display: none;"
         });
-        
+
+        //Stage_2: Test Selection and Initialisaiton
         input2.addEventListener('submit', (e) => {
           e.preventDefault();       
           let test_type = document.getElementById('test_type').value;
@@ -84,15 +101,32 @@
           ipcRenderer.send('start:analysis', {
             test_type
            });
-           ipcRenderer.on('Analysis:complete', (event, data) => {
-              
-              console.log(`${data}`)
-            	console.log("Analysis Complete.")
-              document.getElementById('stage_2').style="display: none"
-              document.getElementById('stage_3').style="display: block"
-              document.getElementById('output').href=`${data}`
+        //Stage_3:Test Results
+          ipcRenderer.on('Analysis:complete', (event, data) => {
+            console.log(`${data}`)
+            console.log("Analysis Complete.")
+            document.getElementById('stage_2').style="display: none"
+            document.getElementById('stage_3').style="display: block"
+       
+            let results_location=(`${data}`);
+            output.addEventListener('click', (e)=> {
+              e.preventDefault()
+              ipcRenderer.send('open:file',{
+                results_location
+              });
+              console.log(results_location)
+            });
            });
         });
+          newtest.addEventListener('click', (e)=> {
+              e.preventDefault()
+              ipcRenderer.send('reload')
+          });
+          retest.addEventListener('click', (e) =>{
+            e.preventDefault()
+            let results_location= ""
+            ipcRenderer.send('retest')
+          });
     </script>
   </body>
 </html>

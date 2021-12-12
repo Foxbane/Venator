@@ -1,0 +1,29 @@
+ExifTool Version Number         : 12.30
+File Name                       : Model EU Position Paper.odt
+Directory                       : .
+File Size                       : 8.5 KiB
+File Modification Date/Time     : 2021:04:28 17:29:39+00:00
+File Access Date/Time           : 2021:04:28 17:29:39+00:00
+File Inode Change Date/Time     : 2021:12:06 22:31:37+00:00
+File Permissions                : -rwxr-xr-x
+File Type                       : ODT
+File Type Extension             : odt
+MIME Type                       : application/vnd.oasis.opendocument.text
+Generator                       : MicrosoftOffice/15.0 MicrosoftWord
+Title                           : 
+Description                     : 
+Subject                         : 
+Initial-creator                 : bryan bird
+Creator                         : bryan bird
+Creation-date                   : 2021:04:28 06:25:00Z
+Date                            : 2021:04:28 17:29:00Z
+Template Href                   : Normal.dotm
+Template Type                   : simple
+Editing-cycles                  : 2
+Editing-duration                : PT19920S
+Document-statistic Page-count   : 2
+Document-statistic Paragraph-count: 8
+Document-statistic Word-count   : 612
+Document-statistic Character-count: 4097
+Document-statistic Row-count    : 29
+Document-statistic Non-whitespace-character-count: 3493

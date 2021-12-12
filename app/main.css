@@ -1,29 +1,56 @@
+@font-face {
+    font-family: "BlackshearRegular";
+    src: url("./Fonts/BlackshearDemoRegular.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "BlackshearScript";
+    src: url("./Fonts/BlackshearDemoScript.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+}
+
 html{
     min-width: 100%;
     min-height: 100%;
     background-color: darkslateblue;
+    font-family: BlackshearRegular;
+    color: gainsboro;
 }
 body{
     min-width: 100%;
     min-height: 100%;
+    text-align: center;
     background-color: darkslateblue;
+}
+#header{
+    text-align: right;
+    padding-right: 5%;
+
 }
 .main_container{
    display: block;
    text-align: center;
    margin-top: 15%;
    padding: auto;
+   word-spacing: 2px;
+   line-break: loose;
+   border-spacing: 5%;
    background-color: darkslateblue;
 }
 .header1{
     background-color: darkslateblue;  
-    margin-bottom: 90%;
-    padding-bottom: 90%;
+    margin-bottom: 15%;
+    padding-bottom: 0%;
 }
 .h3{
     display: block;
     text-align: justify;
-  
     background-color: darkslateblue;
 
 }
@@ -39,7 +66,8 @@ body{
     background-color: darkslateblue;
 }
 .input_fields{
-    background-color: darkslateblue;
+    background-color:darkslateblue;
+    
 }
 
 #input_form{
@@ -47,12 +75,21 @@ body{
 }
 .stage_1{
     background-color: darkslateblue;
+    word-spacing: 2px;
+    line-break: loose;
+    border-spacing: 5%;
 }
 #file_input_description{
     background-color: darkslateblue;
+    padding-bottom: 2%;
 }
 #target{
     background-color: darkslateblue;
+    padding: 5%;
+}
+#submit_1{
+    padding: 5%;
+    background-color: gainsboro;
 }
 .stage_2{
     background-color: darkslateblue;
@@ -61,8 +98,15 @@ body{
     background-color: darkslateblue;
 }
 #test_type{
-    background-color: darkslateblue;
+    background-color: gainsboro;
 }
-#submit{
+#submit_2{
+    background-color: gainsboro;
+}
+#stage_3{
     background-color: darkslateblue;
+    padding: 2%;
+}
+#output{
+    padding: 1%;
 }
