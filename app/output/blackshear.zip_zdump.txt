@@ -1,4 +1,0 @@
-Index Filename                                      Encrypted Timestamp           
-    1 BlackshearDemoRegular.ttf                             0 2021-10-05 03:08:00 
-    2 BlackshearDemoScript.ttf                              0 2021-10-05 03:08:00 
-    3 DEMO - PERSONAL USE ONLY - VinType Studio.txt         0 2021-12-01 10:40:24 

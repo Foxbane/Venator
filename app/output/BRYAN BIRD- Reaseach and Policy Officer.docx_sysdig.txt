@@ -1,6 +1,0 @@
-filetype: Binary
-arch: NOEXEC
-mode: Unknown
-endianess: LE
-type: Unknown
-  archive: Zip(2.0)[15.7%,15 files]
