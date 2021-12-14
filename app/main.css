@@ -1,16 +1,10 @@
 @font-face {
-    font-family: "BlackshearRegular";
-    src: url("./Fonts/BlackshearDemoRegular.ttf") format("truetype");
+    font-family: "akashi";
+    src: url("./Fonts/akashi.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
   }
   
-  @font-face {
-    font-family: "BlackshearScript";
-    src: url("./Fonts/BlackshearDemoScript.ttf") format("truetype");
-    font-weight: 600;
-    font-style: normal;
-  }
   ::-webkit-scrollbar {
     display: none;
 }
@@ -19,7 +13,7 @@ html{
     min-width: 100%;
     min-height: 100%;
     background-color: darkslateblue;
-    font-family: BlackshearRegular;
+    font-family: akashi;
     color:gainsboro;
 }
 body{
@@ -28,7 +22,7 @@ body{
     position: absolute;
     text-align: center;
     background-color: darkslateblue;
-    font-family: BlackshearRegular;
+    font-family: akashi;
 }
 #header{
     padding-right: 2.5%;
@@ -96,7 +90,7 @@ body{
     border-radius: 0 40px 0 40px;
     font-size: 14px;
     font-weight: 500;
-    font-family: BlackshearRegular;
+    font-family: akashi;
     background-color: gainsboro;
     margin:5%;
 }
@@ -114,7 +108,7 @@ body{
     border-width: 1px;
     font-size: 14px;
     font-weight: 500;
-    font-family: BlackshearRegular;
+    font-family: akashi;
     box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
     background-color: gainsboro;
     margin:5%;
@@ -126,6 +120,7 @@ body{
     border-radius: 0 40px 0 40px;
     font-size: 14px;
     font-weight: 500;
+    font-family: akashi;
     box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
     background-color: gainsboro;
     margin: 5%;
@@ -141,6 +136,7 @@ body{
     border-radius: 0 40px 0 40px;
     font-size: 14px;
     font-weight: 500;
+    font-family: akashi;
     box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
     background-color: gainsboro;
     margin:2.5%;
@@ -152,6 +148,7 @@ body{
     border-radius: 0 40px 0 40px;
     font-size: 10px;
     font-weight: 500;
+    font-family: akashi;
     box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
     background-color: gainsboro;
     margin:2.5%;
@@ -163,6 +160,7 @@ body{
     border-radius: 0 40px 0 40px;
     font-size: 10px;
     font-weight: 500;
+    font-family: akashi;
     box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
     background-color: gainsboro;
     margin:2.5%;

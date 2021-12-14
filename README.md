@@ -1,5 +1,5 @@
-The venator is a desktop application design to analysis of suspected malicious
-secure and easy.
+Venator (Latin for hunter) is a desktop application design to analysis of
+suspected malicious secure and easy.
 
 By utilising docker and REMnux distro the process of setting up a secure
 environment with the correct tools is made easy.
