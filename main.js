@@ -12,7 +12,7 @@ var file
 var file_location
 
 // Set environment
-process.env.NODE_ENV = 'development'
+process.env.NODE_ENV = 'production'
 const isDev = process.env.NODE_ENV !== 'production' ? true : false
 let mainWindow
 //settings for app window 
