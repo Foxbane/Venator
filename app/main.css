@@ -20,28 +20,26 @@ html{
     min-height: 100%;
     background-color: darkslateblue;
     font-family: BlackshearRegular;
-    color: gainsboro;
+    color:#999999
+    ;
 }
 body{
-    min-width: 100%;
-    min-height: 100%;
+    width: 100%;
+    height: 90%;
+    position: absolute;
     text-align: center;
     background-color: darkslateblue;
+    font-family: BlackshearRegular;
 }
 #header{
-    text-align: right;
-    padding-right: 5%;
-
+    padding-right: 2.5%;
+    padding-left: 2.5%;
 }
-.main_container{
-   display: block;
-   text-align: center;
-   margin-top: 15%;
-   padding: auto;
-   word-spacing: 2px;
-   line-break: loose;
-   border-spacing: 5%;
-   background-color: darkslateblue;
+#home{
+    float: right;
+}
+#help{
+    float: left;
 }
 .header1{
     background-color: darkslateblue;  
@@ -56,6 +54,7 @@ body{
 }
 #h3 title1{
     text-align: center;
+    margin: 5%;
 
 }
 #description{
@@ -72,41 +71,100 @@ body{
 
 #input_form{
     background-color: darkslateblue;
+    margin-top: 10%;
 }
 .stage_1{
     background-color: darkslateblue;
     word-spacing: 2px;
     line-break: loose;
     border-spacing: 5%;
+    padding: 10%;
 }
-#file_input_description{
-    background-color: darkslateblue;
-    padding-bottom: 2%;
-}
+
 #target{
-    background-color: darkslateblue;
-    padding: 5%;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-width: 1px;
+    border-radius: 0 40px 0 40px;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 5%;
 }
 #submit_1{
-    padding: 5%;
-    background-color: gainsboro;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-width: 1px;
+    border-radius: 0 40px 0 40px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: BlackshearRegular;
+    background-color: #999999;
+    margin:5%;
 }
 .stage_2{
     background-color: darkslateblue;
+    margin:15%
 }
 #test_type_decription{
     background-color: darkslateblue;
+    margin: 7.5%
 }
 #test_type{
-    background-color: gainsboro;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-width: 1px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: BlackshearRegular;
+    box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
+    background-color: #999999 ;
+    margin:5%;
 }
 #submit_2{
-    background-color: gainsboro;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-width: 1px;
+    border-radius: 0 40px 0 40px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
+    background-color: #999999;
+    margin: 5%;
 }
 #stage_3{
     background-color: darkslateblue;
-    padding: 2%;
+   
 }
 #output{
-    padding: 1%;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-width: 1px;
+    border-radius: 0 40px 0 40px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
+    background-color: #999999;
+    margin:2.5%;
+}
+#retest{
+    padding: 6px 10px;
+    cursor: pointer;
+    border-width: 1px;
+    border-radius: 0 40px 0 40px;
+    font-size: 10px;
+    font-weight: 500;
+    box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
+    background-color: #999999;
+    margin:2.5%;
+}
+#newtest{
+    padding: 6px 10px;
+    cursor: pointer;
+    border-width: 1px;
+    border-radius: 0 40px 0 40px;
+    font-size: 10px;
+    font-weight: 500;
+    box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
+    background-color: #999999;
+    margin:2.5%;
 }

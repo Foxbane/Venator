@@ -11,13 +11,10 @@ var target
 var file
 var file_location
 
-// Set env
+// Set environment
 process.env.NODE_ENV = 'development'
-
 const isDev = process.env.NODE_ENV !== 'production' ? true : false
-
 let mainWindow
-
 //settings for app window 
 function createMainWindow() {
   mainWindow = new BrowserWindow({
@@ -38,17 +35,15 @@ function createMainWindow() {
   }
   mainWindow.loadFile('./app/index.html')
 }
-//launcher 
+//launcher and configuration for menu
 app.on('ready', () => {
   createMainWindow()
   const mainMenu = Menu.buildFromTemplate(menu)
   Menu.setApplicationMenu(mainMenu)
 })
-
 const menu = [
   {
     role: 'fileMenu',
-
   },
   ...(isDev
     ? [
@@ -64,7 +59,6 @@ const menu = [
       ]
     : []),
 ]
-
 //closing window, stop and remove active contianer
 app.on('window-all-closed', () => {
     exec('docker kill'+" "+DID)
@@ -81,7 +75,6 @@ app.on('activate', () => {
     });
   }
 })
-
 //Communicaiton with frontend 
 ipcMain.on('send:cmd', (event,args) =>{
   console.log(args);
@@ -106,7 +99,7 @@ ipcMain.on('start:analysis', (event,args) =>{
       mainWindow.webContents.send('Error:encountered',`${stderr}`);
       break;
   }
-})
+});
 //Takes file location and splits down for opening with notepad
 ipcMain.on('open:file', (event,args) =>{
     let results= args.results_location;
@@ -115,17 +108,13 @@ ipcMain.on('open:file', (event,args) =>{
     results2=results1.slice(1)
     console.log(results2)
     openFile(results2);
-    results2=""
 });
+//call to reload app for further testing 
 ipcMain.on('reload', (event)=> {
   exec('docker kill'+" "+DID)
   exec('docker rm'+" "+DID)
-  win.loadFile('index.html')
+  mainWindow.loadFile('./app/index.html')
 });
-ipcMain.on('retest', (event)=>{
-  mainWindow.webContents.send('setup:end',DID);
-});
-
 //Process Functions
 //function for spinning up container
 async function startContainer(args){
@@ -134,22 +123,22 @@ async function startContainer(args){
   file_location = (":home/remnux/"+file)
   console.log(target,file);
   const dockers = exec('docker run --detach remnux/remnux-distro');
-    dockers.stdout.on('data', (data) => {          
-      let dockerID=(`${data}`)  
-      console.log(dockerID) 
-      DID=dockerID.substring(0,11);
-      console.log(DID)
-    });
-    dockers.stderr.on('data', (data) => {
-      console.error(`stderr: ${data}`);
-      mainWindow.webContents.send('Error:encountered',`${data}`);
-    });
-    dockers.on('close', (code) => {
-     if(code==0){
+  dockers.stdout.on('data', (data) => {          
+    let dockerID=(`${data}`)  
+    console.log(dockerID) 
+    DID=dockerID.substring(0,11);
+    console.log(DID)
+  });
+  dockers.stderr.on('data', (data) => {
+    console.error(`stderr: ${data}`);
+    mainWindow.webContents.send('Error:encountered',`${data}`);
+  });
+  dockers.on('close', (code) => {
+    if(code==0){
       console.log(`child process exited with code ${code}`);
       sendFile();
-     }
-    });
+    }
+  });
 }
 //copies file from host to container
 async function sendFile(){
@@ -158,67 +147,57 @@ async function sendFile(){
   console.log(filep)
   console.log('docker cp'+" "+target+" "+filep)
   const transfer = exec('docker cp'+" "+target+" "+filep)
-    transfer.stdout.on('data', (data) => {    
-      console.log(`${data}`)          
-    });
-
-    transfer.stderr.on('data', (data) => {
-      console.error(`stderr: ${data}`);
-      mainWindow.webContents.send('Error:encountered',`${data}`);
-    });
-  
-    transfer.on('close', (code) => {
-      if(code==0){
-        console.log(`child process exited with code ${code}`);
-        console.log(`${stdout}`)
-        mainWindow.webContents.send('setup:end',DID);
-      }
-    });
+  transfer.stdout.on('data', (data) => {    
+    console.log(`${data}`)          
+  });
+  transfer.stderr.on('data', (data) => {
+    console.error(`stderr: ${data}`);
+    mainWindow.webContents.send('Error:encountered',`${data}`);
+  });
+  transfer.on('close', (code) => {
+    if(code==0){
+      console.log(`child process exited with code ${code}`);
+      console.log(`${stdout}`)
+      mainWindow.webContents.send('setup:end',DID);
+    }
+  });
 }
 //opens the output file with notepad
 async function openFile(){
   console.log(results2)
   const notepad= exec('notepad'+" "+results2)
-    notepad.stdout.on('data', (data) => {    
-      console.log(`${data}`)
-    });
-
-    notepad.stderr.on('data', (data) => {
-      console.error(`stderr: ${data}`);
-      mainWindow.webContents.send('Error:encountered',`${data}`);
-    });
-
-    notepad.on('close', (code) => {
-      console.log(`child process exited with code ${code}`);
-        if (code==0) {
-        }
-    });
+  notepad.stdout.on('data', (data) => {    
+    console.log(`${data}`)
+  });
+  notepad.stderr.on('data', (data) => {
+    console.error(`stderr: ${data}`);
+    mainWindow.webContents.send('Error:encountered',`${data}`);
+  });
+  notepad.on('close', (code) => {
+    console.log(`child process exited with code ${code}`);
+  });
 }
-
 //Functions for Tests 
 async function runExif(args){
   let test_type = args.test_type
   let output_location= (">app/output/"+file+"_exif.txt")
   console.log(test_type);
   console.log(output_location);
-
   const starttest= exec('docker exec'+" "+DID+ " "+ test_type+ " "+file+" "+output_location)
-    starttest.stdout.on('data', (data) => {    
-      console.log(`${data}`)
-    });
-
-    starttest.stderr.on('data', (data) => {
-      console.error(`stderr: ${data}`);
-      mainWindow.webContents.send('Error:encountered',`${data}`);
-    });
-
-    starttest.on('close', (code) => {
-     console.log(`child process exited with code ${code}`);
-     if (code==0) {
+  starttest.stdout.on('data', (data) => {    
+    console.log(`${data}`)
+  });
+  starttest.stderr.on('data', (data) => {
+    console.error(`stderr: ${data}`);
+    mainWindow.webContents.send('Error:encountered',`${data}`);
+  });
+  starttest.on('close', (code) => {
+    console.log(`child process exited with code ${code}`);
+    if (code==0) {
       console.log(`${stdout}`)
       mainWindow.webContents.send('Analysis:complete',output_location);
-     }
-    });
+    }
+  });
 }
 async function runZipdump(args){
   let test_type = args.test_type
@@ -226,22 +205,20 @@ async function runZipdump(args){
   console.log(test_type);
   console.log(output_location);
   const starttest= exec('docker exec'+" "+DID+ " "+ test_type+ " "+file+" "+output_location)
-    starttest.stdout.on('data', (data) => {    
-      console.log(`${data}`)
-    });
-
-    starttest.stderr.on('data', (data) => {
-      console.error(`stderr: ${data}`);
-      mainWindow.webContents.send('Error:encountered',`${data}`);
-    });
-
-    starttest.on('close', (code) => {
-     console.log(`child process exited with code ${code}`);
-     if (code==0) {
+  starttest.stdout.on('data', (data) => {    
+    console.log(`${data}`)
+  });
+  starttest.stderr.on('data', (data) => {
+    console.error(`stderr: ${data}`);
+    mainWindow.webContents.send('Error:encountered',`${data}`);
+  });
+  starttest.on('close', (code) => {
+    console.log(`child process exited with code ${code}`);
+    if (code==0) {
       console.log(`${stdout}`)
       mainWindow.webContents.send('Analysis:complete',output_location);
-     }
-    });
+    }
+  });
 }
 async function runDiec(args){
   let test_type = args.test_type
@@ -250,20 +227,18 @@ async function runDiec(args){
   console.log(output_location);
 
   const starttest= exec('docker exec'+" "+DID+ " "+ test_type+ " "+"-d"+" "+file+" "+output_location)
-    starttest.stdout.on('data', (data) => {    
-      console.log(`${data}`)
-    });
-
-    starttest.stderr.on('data', (data) => {
-      console.error(`stderr: ${data}`);
-      mainWindow.webContents.send('Error:encountered',`${data}`);
-    });
-
-    starttest.on('close', (code) => {
-     console.log(`child process exited with code ${code}`);
-     if (code==0) {
+  starttest.stdout.on('data', (data) => {    
+    console.log(`${data}`)
+  });
+  starttest.stderr.on('data', (data) => {
+    console.error(`stderr: ${data}`);
+    mainWindow.webContents.send('Error:encountered',`${data}`);
+  });
+  starttest.on('close', (code) => {
+    console.log(`child process exited with code ${code}`);
+    if (code==0) {
       console.log(`${stdout}`)
       mainWindow.webContents.send('Analysis:complete',output_location);
-     }
-    });
+    }
+  });
 }

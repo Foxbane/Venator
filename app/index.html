@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Venator</title>
     <link rel= "stylesheet" href="main.css"/>
     <div id="header">
       <a id="help" href="https://github.com/Foxbane/Venator" target="_blank"><img src=".\assets\question_mark.png" height="25px" width="25px"></a>
+      <a id="home" onclick=reload()><img src=".\assets\home.png" height="25px" width="25px"></a>
     </div>
   </head>
 <body>
@@ -16,8 +17,8 @@
       <form id="input_form">
        <div id="stage_1" style="display: block;">
         <p1 id="file_input_description">Please select a file to test and setup the environment</p1></br>
-        <input type="file"  id="target"></br>
-        <input type="submit" value="Setup Analysis" id="submit_1" />
+          <input type="file"  id="target"></br>
+          <input type="submit" value="Setup Analysis" id="submit_1" />
        </div>
       </form>
       <form id="test_form">
@@ -35,10 +36,8 @@
         <p>Analysis complete</p>
         <button id="output">click here to view results</button></br>
         <button id="retest">Run another test?</button></br>
-        <button id="newtest">Or start a new test?</button>
+        <button id="newtest" onclick= reload()>Or start a new test?</button>
       </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
       const path = require('path')
       const os = require('os')
@@ -48,15 +47,12 @@
       const output = document.getElementById('output');
       const newtest = document.getElementById('newtest');
       const retest = document.getElementById('retest');
+      var test_type
       var filen
       var results_location
 
-      function createNode(element) {
-        return document.createElement(element); 
-      }
-
-      function append(parent, el) {
-        return parent.appendChild(el); 
+      function reload(){
+        ipcRenderer.send('reload')
       }
 
       //Error Handling
@@ -93,40 +89,36 @@
           document.getElementById('stage_3').style = "display: none;"
         });
 
-        //Stage_2: Test Selection and Initialisaiton
-        input2.addEventListener('submit', (e) => {
-          e.preventDefault();       
-          let test_type = document.getElementById('test_type').value;
-          console.log(test_type);
-          ipcRenderer.send('start:analysis', {
-            test_type
-           });
-        //Stage_3:Test Results
-          ipcRenderer.on('Analysis:complete', (event, data) => {
-            console.log(`${data}`)
-            console.log("Analysis Complete.")
-            document.getElementById('stage_2').style="display: none"
-            document.getElementById('stage_3').style="display: block"
-       
-            let results_location=(`${data}`);
-            output.addEventListener('click', (e)=> {
-              e.preventDefault()
-              ipcRenderer.send('open:file',{
-                results_location
-              });
-              console.log(results_location)
-            });
-           });
+      //Stage_2: Test Selection and Initialisaiton
+      input2.addEventListener('submit', (e) => {
+        e.preventDefault();       
+        let test_type = document.getElementById('test_type').value;
+        console.log(test_type);
+        ipcRenderer.send('start:analysis', {
+           test_type
         });
-          newtest.addEventListener('click', (e)=> {
-              e.preventDefault()
-              ipcRenderer.send('reload')
+      });
+      //Stage_3:Test Results
+      ipcRenderer.on('Analysis:complete', (event, data) => {
+        console.log(`${data}`)
+        console.log("Analysis Complete.")
+        document.getElementById('stage_2').style="display: none"
+        document.getElementById('stage_3').style="display: block"
+        let results_location = (`${data}`);
+        console.log(results_location)
+        output.addEventListener('click', (e)=> {
+          ipcRenderer.send('open:file',{
+             results_location
           });
-          retest.addEventListener('click', (e) =>{
-            e.preventDefault()
-            let results_location= ""
-            ipcRenderer.send('retest')
-          });
+          console.log(results_location)
+        });
+      });
+      retest.addEventListener('click', (e) =>{
+        e.preventDefault()
+        document.getElementById('stage_1').style = "display: none;";
+        document.getElementById('stage_2').style = "display: block;";
+        document.getElementById('stage_3').style = "display: none;"
+      });  
     </script>
   </body>
 </html>
