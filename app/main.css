@@ -20,8 +20,7 @@ html{
     min-height: 100%;
     background-color: darkslateblue;
     font-family: BlackshearRegular;
-    color:#999999
-    ;
+    color:gainsboro;
 }
 body{
     width: 100%;
@@ -98,7 +97,7 @@ body{
     font-size: 14px;
     font-weight: 500;
     font-family: BlackshearRegular;
-    background-color: #999999;
+    background-color: gainsboro;
     margin:5%;
 }
 .stage_2{
@@ -117,7 +116,7 @@ body{
     font-weight: 500;
     font-family: BlackshearRegular;
     box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
-    background-color: #999999 ;
+    background-color: gainsboro;
     margin:5%;
 }
 #submit_2{
@@ -128,7 +127,7 @@ body{
     font-size: 14px;
     font-weight: 500;
     box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
-    background-color: #999999;
+    background-color: gainsboro;
     margin: 5%;
 }
 #stage_3{
@@ -143,7 +142,7 @@ body{
     font-size: 14px;
     font-weight: 500;
     box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
-    background-color: #999999;
+    background-color: gainsboro;
     margin:2.5%;
 }
 #retest{
@@ -154,7 +153,7 @@ body{
     font-size: 10px;
     font-weight: 500;
     box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
-    background-color: #999999;
+    background-color: gainsboro;
     margin:2.5%;
 }
 #newtest{
@@ -165,6 +164,6 @@ body{
     font-size: 10px;
     font-weight: 500;
     box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
-    background-color: #999999;
+    background-color: gainsboro;
     margin:2.5%;
 }
