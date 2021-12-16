@@ -29,6 +29,10 @@ the first time. Click through the alerts until the test screen is displayed.**
 
 **User guide.**
 
+Please run the following command to install dependencies:
+
+\$npm -i
+
 -   The venator works by spinning up a docker container of the [REMnux
     distro](https://remnux.org) to take advantage of its malware analysis
     toolkit. As such we strongly recommend checking out their documentation for
