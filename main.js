@@ -115,6 +115,7 @@ ipcMain.on('reload', (event)=> {
   exec('docker rm'+" "+DID)
   mainWindow.loadFile('./app/index.html')
 });
+
 //Process Functions
 //function for spinning up container
 async function startContainer(args){
