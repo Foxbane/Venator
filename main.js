@@ -12,7 +12,7 @@ var file
 var file_location
 
 // Set environment
-process.env.NODE_ENV = 'development'
+process.env.NODE_ENV = 'production'
 const isDev = process.env.NODE_ENV !== 'production' ? true : false
 let mainWindow
 //settings for app window 
@@ -115,6 +115,7 @@ ipcMain.on('reload', (event)=> {
   exec('docker rm'+" "+DID)
   mainWindow.loadFile('./app/index.html')
 });
+
 //Process Functions
 //function for spinning up container
 async function startContainer(args){

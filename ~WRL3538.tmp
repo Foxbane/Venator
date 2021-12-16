@@ -9,7 +9,8 @@ upload files, select test types and retrieve results.
 
 **\*Important for first time setup\*: If a REMnux image is not installed for
 docker, please allow a couple of minutes when selecting setup environment for
-the first time. Click through the alerts until the test screen is displayed.**
+the first time. Click through the alerts until “Image successfully downloaded”
+is displayed.**
 
 **Requirements**
 
@@ -20,10 +21,7 @@ the first time. Click through the alerts until the test screen is displayed.**
 -   Docker for windows must be installed prior to launch and can be found
     [here](https://docs.docker.com/desktop/windows/install/)
 
--   Latest REMnux image must be available to run any analysis and can be
-    installed using the following command prior to app use:
-
-    **“\$docker pull remnux/remnux-distro”**
+-   Latest REMnux image must be available to run any analysis
 
 **Note:** Venator is currently only available for windows bases systems.
 
